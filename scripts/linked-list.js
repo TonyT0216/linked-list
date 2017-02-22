@@ -206,8 +206,8 @@ class LinkedList {
         while (currentLink !== null) {
             if (count === index)
                 return currentLink.data;
-            count++;
             currentLink = currentLink.next;
+            count++;
         }
 
         return -1;
@@ -369,12 +369,3 @@ class LinkedList {
         return array;
     }
 }
-
-var linkedList = new LinkedList();
-linkedList.addAtIndex(25, 0);
-linkedList.addAtIndex(40, 0);
-linkedList.addAtIndex(35, 1);
-linkedList.addAtIndex(10, 2);
-linkedList.addAtIndex(44,4);
-linkedList.addAtIndex(55,3);
-linkedList.toArray();
