@@ -41,7 +41,6 @@ class LinkedList {
         if (!currentNode) {
             this.addFirst(data);
             itemAdded = 1;
-            return itemAdded;
         } else {
             // let node = {
             //     data: data,
@@ -57,10 +56,9 @@ class LinkedList {
             // itemAdded = 1;
             this.addLast(data);
             itemAdded = 1;
-            return itemAdded;
         }
 
-        return itemAdded;
+        return (itemAdded === 1);
 
     }
 
@@ -182,7 +180,7 @@ class LinkedList {
                 currentLink = currentLink.next;
             }
         }
-        return found;
+        return (found === 1);
     }
 
     /* 
@@ -270,21 +268,19 @@ class LinkedList {
         }
 
         if (found === -1)
-            return -1;
+            return false;
 
         if (this.size() === 1) {
             this.head = this.tail = null;
         } else if (current === this.head) {
-            removeFirst();
+            this.removeFirst();
         } else if (current === this.tail) {
-            removeLast();
+            this.removeLast();
         } else {
             previous.next = current.next;
+            this.count--;
         }
-
-        this.count--;
-
-        return current;
+        return true;
     }
 
     removeFirst() {
@@ -296,7 +292,7 @@ class LinkedList {
         let current = this.head;
         this.head = current.next;
         this.count--;
-        return current.data;
+        return current['data'];
     }
 
     removeLast() {
@@ -323,7 +319,7 @@ class LinkedList {
 
         this.count--;
 
-        return result.data;
+        return result['data'];
     }
 
     removeAtIndex(index) {
